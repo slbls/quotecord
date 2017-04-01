@@ -1,5 +1,4 @@
-# Quotecord
-## The simple self-bot for quoting in Discord!
+# Quotecord - The simple self-bot for quoting in Discord!
 
 ### Installation
 1. If it is not installed already, install Node.js on your system. https://nodejs.org/en/
