@@ -1,0 +1,14 @@
+{
+  "name": "quotecord",
+  "version": "1.0.0",
+  "description": "Discord self-bot for quoting.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Spencer Berenson",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.0.0"
+  }
+}
