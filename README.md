@@ -8,4 +8,4 @@
 5. If the previous steps have been followed correctly, Quotecord should now be running.
 
 ### Usage
-To quote another users message, simple copy the message ID you are looking to quote by right clicking the message and selecting "Copy ID." Once this has been done, any message containing {quote:MESSAGE_ID_HERE} will be replaced by the quoted message.
+To quote another users message, simple copy the message ID you are looking to quote by right clicking the message and selecting "Copy ID." Once this has been done, any message containing ```{quote:MESSAGE_ID_HERE}``` will be replaced by the quoted message.
