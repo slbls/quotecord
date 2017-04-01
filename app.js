@@ -17,7 +17,7 @@ client.on('message', msg => {
 			channel.fetchMessages().then(msgs => {
 				let quoteSource = msgs.get(quoteId);
 				let quoteEmbed = new Discord.RichEmbed();
-				quoteEmbed.setAuthor(`${quoteSource.author.username} said: `, quoteSource.author.avatarURL).setDescription(quoteSource.content).setTimestamp(quoteSource.createdTimestamp).setURL("https://github.com/SpoonBytes/Quotecord");
+				quoteEmbed.setAuthor(`${quoteSource.author.username} said: `, quoteSource.author.avatarURL).setDescription(quoteSource.content).setURL("https://github.com/SpoonBytes/Quotecord");
 				channel.sendEmbed(quoteEmbed).then(m => channel.sendMessage(msg.content.replace(/{quote:\d+}/, "")));
 
 				msg.delete();
