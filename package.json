@@ -1,11 +1,11 @@
 {
-  "name": "quotecord",
-  "version": "1.0.0",
-  "description": "Discord self-bot for quoting.",
-  "main": "app.js",
-  "author": "Spencer Berenson",
-  "license": "MIT",
-  "dependencies": {
-    "discord.js": "^11.0.0"
-  }
+	"name": "quotecord",
+	"version": "1.0.0",
+	"description": "Discord self-bot for quoting.",
+	"main": "app.js",
+	"author": "Spencer Berenson",
+	"license": "MIT",
+	"dependencies": {
+		"discord.js": "^11.0.0"
+	}
 }
