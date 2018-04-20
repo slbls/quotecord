@@ -1,23 +1,37 @@
 # Quotecord - The simple self-bot for quoting in Discord!
 
+## Table of Contents
+
+* [Installation](#installation)
+* [Finding Token ID](#finding-token-id)
+* [Usage](#usage)
+
 ## Installation
 
-1.  If it is not installed already, install Node.js on your system. https://nodejs.org/en/
-2.  Download Quotecord from GitHub.
-3.  Edit config.js inside the Quotecord folder with your account's token ID. To find your account's token ID, read the section "Finding Token ID" below.
-4.  Open the terminal/command line in the Quotecord folder and run the command "node app.js"
-5.  If the previous steps have been followed correctly, Quotecord should now be running.
+1.  If it is not installed already, [install Node.js on your system.](https://nodejs.org/)
+
+2.  [Download Quotecord from GitHub.](https://github.com/SpoonBytes/quotecord/archive/master.zip)
+
+3.  Edit the `config.js` file inside of the Quotecord folder with your account's token ID. To find your account's token ID, please see [Finding Token ID.](#finding-token-id)
+
+4.  Open the terminal/command line in the Quotecord folder and run the command `node app.js`.
 
 ## Finding Token ID
 
-1.  Press CTRL+Shift+I in Discord.
-2.  Switch to the `Network` tab in the window that appears.
-    ![](http://i.imgur.com/IuNf1GL.png)
-3.  With this window still open, send a message in any Discord channel. Look for a request named `messages` in the list of items that appears (see bottom of image).
-    ![](http://i.imgur.com/BWSd48r.png?1)
-4.  Click on the `messages` request. In the panel that appears to the right click the `Headers` tab and scroll down to the `Request Headers` section. The value labeled `authorization` is your account's token ID.
-    ![](http://i.imgur.com/OJKNSLe.png?1)
+![Screenshot of application tab](https://i.imgur.com/QBNTrhX.png)
+
+1.  Press `Ctrl + Shift + I` while the Discord window is opened.
+
+2.  Switch to the `Application` tab in the window that appears.
+
+3.  Expand the `Local Storage` drop-down on the left and click on the Discord URL.
+
+4.  Find the `token` key in the list that appears: the value is your token ID.
 
 ## Usage
 
-To quote another users message, simple copy the message ID you are looking to quote by right clicking the message and selecting "Copy ID." Once this has been done, any message containing `{quote:MESSAGE_ID_HERE}` will be replaced by the quoted message.
+1.  Right click the message you would like to quote and select `Copy ID`.
+
+2.  Type `{quote:MESSAGE_ID_HERE}` with `MESSGAGE_ID_HERE` replaced by the message ID obtained in the previous step
+
+3.  Send!
