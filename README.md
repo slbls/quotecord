@@ -40,4 +40,6 @@
 
 ### Important Note
 
+![Screenshot of Discord Support article on self-bots](https://i.imgur.com/cGHUpEy.png)
+
 While it is **unlikely** that action will be taken against a self-bot account doing small tasks (such as quoting), please use Quotecord at your own risk. Discord's official stance on self-bots is that they are forbidden.
