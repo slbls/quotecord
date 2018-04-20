@@ -1,4 +1,4 @@
-# Quotecord - The simple self-bot for quoting in Discord!
+# Quotecord - “ ” messages in Discord
 
 ## Table of Contents
 
