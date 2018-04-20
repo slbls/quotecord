@@ -25,6 +25,8 @@ client.on("message", message => {
 						tags[index].split(":")[1].replace("}", "")
 					);
 
+					if (!quote) return;
+
 					channel.send(
 						beforeTag,
 						new RichEmbed({
