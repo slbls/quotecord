@@ -30,10 +30,18 @@ client.on("message", message => {
 						new RichEmbed({
 							author: {
 								name: quote.author.username,
-								icon: quote.author.avatarURL
+								icon_url: quote.author.displayAvatarURL
 							},
+							title: "“ ” by Quotecord",
 							description: quote.content,
-							url: "https://github.com/SpoonBytes/quotecord"
+							url: "https://github.com/SpoonBytes/quotecord",
+							footer: {
+								text: quote.createdAt.toLocaleDateString("en-US", {
+									hour: "numeric",
+									minute: "numeric",
+									second: "numeric"
+								})
+							}
 						})
 					);
 
