@@ -1,4 +1,4 @@
-# Quotecord - “ ” messages in Discord
+# Quotecord — “ ” messages in Discord
 
 ## Table of Contents
 
