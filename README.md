@@ -10,11 +10,11 @@
 
 1.  If it is not installed already, [install Node.js on your system.](https://nodejs.org/)
 
-2.  [Download Quotecord from GitHub.](https://github.com/SpoonBytes/quotecord/archive/master.zip)
+2.  [Download and extract Quotecord from GitHub.](https://github.com/SpoonBytes/quotecord/archive/master.zip)
 
-3.  Edit the `config.js` file inside of the Quotecord folder with your account's token ID. To find your account's token ID, please see [Finding Token ID.](#finding-token-id)
+3.  Edit the `config.json` file with your account's token ID. To find your account's token ID, please see [Finding Token ID.](#finding-token-id)
 
-4.  Open the terminal/command line in the Quotecord folder and run the command `node app.js`.
+4.  Open the terminal/command line inside the Quotecord folder and run the command `node app.js`.
 
 ## Finding Token ID
 
