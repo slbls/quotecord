@@ -29,12 +29,12 @@ client.on("message", message => {
 						beforeTag,
 						new RichEmbed({
 							author: {
-								name: quote.author.username,
+								name: quote.member
+									? quote.member.nickname
+									: quote.author.username,
 								icon_url: quote.author.displayAvatarURL
 							},
-							title: "“ ” by Quotecord",
 							description: quote.content,
-							url: "https://github.com/SpoonBytes/quotecord",
 							footer: {
 								text: quote.createdAt.toLocaleDateString("en-US", {
 									hour: "numeric",
