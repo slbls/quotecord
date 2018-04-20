@@ -1,7 +1,6 @@
-import { Client, RichEmbed } from "discord.js";
-import config from "./config";
-
-const client = new Client();
+const { Client, RichEmbed } = require("discord.js"),
+	config = require("./config"),
+	client = new Client();
 
 client.on("ready", () => {
 	console.log(`Logged in as ${client.user.username}.`);
@@ -9,33 +8,40 @@ client.on("ready", () => {
 
 client.on("message", message => {
 	if (message.client === client) {
-		const channel = message.channel;
-		let quote = message.content.match(/{quote:\d+}/);
+		const messageContent = message.content,
+			channel = message.channel;
 
-		if (!quote) return;
-
-		quote = quote[0];
-		let quoteId = quote.split(":")[1].replace("}", "");
+		const tags = messageContent.match(/{quote:\d+}/g);
+		if (!tags) return;
 
 		channel.fetchMessages().then(messages => {
-			const quoteSource = messages.get(quoteId),
-				quoteEmbed = new RichEmbed();
+			if (message.deletable) message.delete();
 
-			quoteEmbed
-				.setAuthor(
-					`${quoteSource.author.username} said: `,
-					quoteSource.author.avatarURL
-				)
-				.setDescription(quoteSource.content)
-				.setURL("https://github.com/SpoonBytes/quotecord");
+			messageContent.split(/{quote:\d+}/).forEach((beforeTag, index) => {
+				const tag = tags[index];
 
-			channel
-				.sendEmbed(quoteEmbed)
-				.then(m =>
-					channel.sendMessage(message.content.replace(/{quote:\d+}/, ""))
-				);
+				if (tag) {
+					const quote = messages.get(
+						tags[index].split(":")[1].replace("}", "")
+					);
 
-			message.delete();
+					channel.send(
+						beforeTag,
+						new RichEmbed({
+							author: {
+								name: quote.author.username,
+								icon: quote.author.avatarURL
+							},
+							description: quote.content,
+							url: "https://github.com/SpoonBytes/quotecord"
+						})
+					);
+
+					return;
+				}
+
+				if (beforeTag) channel.send(beforeTag);
+			});
 		});
 	}
 });
