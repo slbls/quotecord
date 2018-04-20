@@ -30,7 +30,7 @@ client.on("message", message => {
 						new RichEmbed({
 							author: {
 								name: quote.member
-									? quote.member.nickname || quote.member.username
+									? quote.member.nickname || quote.author.username
 									: quote.author.username,
 								icon_url: quote.author.displayAvatarURL
 							},
