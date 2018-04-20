@@ -37,3 +37,7 @@
 2.  Type `{quote:MESSAGE_ID_HERE}` with `MESSGAGE_ID_HERE` replaced by the message ID obtained in the previous step
 
 3.  Send!
+
+### Important Note
+
+While it is **unlikely** that action will be taken against a self-bot account doing small tasks (such as quoting), please use Quotecord at your own risk. Discord's official stance on self-bots is that they are forbidden.
