@@ -7,7 +7,7 @@
 * [Installation](#installation)
 * [Finding Token ID](#finding-token-id)
 * [Usage](#usage)
-  * [Important Notes](#important-notes)
+  * [Important Note](#important-note)
 
 ## Installation
 
