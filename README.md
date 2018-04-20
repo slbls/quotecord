@@ -14,7 +14,7 @@
 
 3.  Edit the `config.json` file with your account's token ID. To find your account's token ID, please see [Finding Token ID.](#finding-token-id)
 
-4.  Open the terminal/command line inside the Quotecord folder and run the command `node app.js`.
+4.  Open the terminal/command line inside the Quotecord folder and run the command `npm start`.
 
 ## Finding Token ID
 
