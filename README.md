@@ -1,4 +1,4 @@
-# Quotecord — “ ” messages in Discord
+# Quotecord
 
 ![Image of example quote](https://i.imgur.com/wEcJfO1.png)
 
