@@ -34,7 +34,7 @@ client.on("message", message => {
 					channel.sendMessage(message.content.replace(/{quote:\d+}/, ""))
 				);
 
-			msg.delete();
+			message.delete();
 		});
 	}
 });
