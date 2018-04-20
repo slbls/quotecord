@@ -4,11 +4,15 @@
 	"description": "Discord self-bot for quoting.",
 	"main": "app.js",
 	"scripts": {
+		"test": "nodemon app.js",
 		"start": "node app.js"
 	},
 	"author": "Spencer Berenson",
 	"license": "MIT",
 	"dependencies": {
 		"discord.js": "^11.3.2"
+	},
+	"devDependencies": {
+		"nodemon": "^1.17.3"
 	}
 }
