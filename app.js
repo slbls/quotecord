@@ -1,6 +1,7 @@
-const Discord = require("discord.js");
-const config = require("./config.json");
-const client = new Discord.Client();
+import { Client, RichEmbed } from "discord.js";
+import config from "./config";
+
+const client = new Client();
 
 client.on("ready", () => {
 	console.log(`Logged in as ${client.user.username}.`);
@@ -17,8 +18,8 @@ client.on("message", message => {
 		let quoteId = quote.split(":")[1].replace("}", "");
 
 		channel.fetchMessages().then(messages => {
-			let quoteSource = messages.get(quoteId);
-			let quoteEmbed = new Discord.RichEmbed();
+			const quoteSource = messages.get(quoteId),
+				quoteEmbed = new RichEmbed();
 
 			quoteEmbed
 				.setAuthor(
