@@ -69,29 +69,33 @@ const fs = require("fs"),
 	path = require("path");
 
 fs.writeFile(
-	"config.json",
+	path.join(__dirname, "config.json"),
 	JSON.stringify({ token: "" }, null, "\t"),
 	{ flag: "wx" },
 	error => {
 		if (error && error.code === "EEXIST") {
-			fs.readFile("config.json", "utf8", (error, data) => {
-				const config = JSON.parse(data);
-				if (config.token) {
-					client.login(config.token);
-					return;
+			fs.readFile(
+				path.join(__dirname, "config.json"),
+				"utf8",
+				(error, data) => {
+					const config = JSON.parse(data);
+					if (config.token) {
+						client.login(config.token);
+						return;
+					}
+
+					console.log(
+						chalk.bold.red(
+							"Cannot login: config.json exists but no client token was specified."
+						)
+					);
+					console.log(chalk.gray("Press any key to exit..."));
+
+					process.stdin.setRawMode(true);
+					process.stdin.resume();
+					process.stdin.on("data", process.exit.bind(process, 0));
 				}
-
-				console.log(
-					chalk.bold.red(
-						"Cannot login: config.json exists but no client token was specified."
-					)
-				);
-				console.log(chalk.gray("Press any key to exit..."));
-
-				process.stdin.setRawMode(true);
-				process.stdin.resume();
-				process.stdin.on("data", process.exit.bind(process, 0));
-			});
+			);
 
 			return;
 		}
