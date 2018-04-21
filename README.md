@@ -9,16 +9,14 @@
   * [Finding Token ID](#finding-token-id)
   * [Configuration](#configuration)
   * [Developer Mode](#developer-mode)
-  * [Quoting Messages](#quoting-messages)
+* [Usage](#quoting-messages)
 * [Important Note](#important-note)
 
 ## Download
 
 [Click here for the latest release.](https://github.com/SpoonBytes/quotecord/releases)
 
-## Usage
-
-### Setup
+## Setup
 
 If you haven't already, [download Quotecord here.](https://github.com/SpoonBytes/quotecord/releases)
 
@@ -48,7 +46,7 @@ There is one last step before being able to quote messages: enabling a Discord s
 
 2.  Scroll to the bottom of the section and enable the switch labeled `Developer Mode`.
 
-### Quoting Messages
+## Usage
 
 With Quotecord downloaded, configured, and running, you can now quote other users' messages! Follow the simple steps below to learn how:
 
