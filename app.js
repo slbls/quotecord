@@ -1,5 +1,4 @@
 const { Client, RichEmbed } = require("discord.js"),
-	config = require("./config"),
 	client = new Client();
 
 client.on("ready", () => {
@@ -56,5 +55,30 @@ client.on("message", message => {
 	}
 });
 
-if (config.token) client.login(config.token);
-else throw Error("Cannot login: no client token in config.json.");
+const fs = require("fs"),
+	path = require("path");
+
+fs.writeFile(
+	"config.json",
+	JSON.stringify({ token: "" }, null, "\t"),
+	{ flag: "wx" },
+	error => {
+		if (error && error.code === "EEXIST") {
+			const config = require("./config");
+			if (config.token) {
+				client.login(config.token);
+				return;
+			}
+
+			console.log(
+				"Cannot login: config.json exists but no client token was specified."
+			);
+
+			return;
+		}
+
+		console.log(
+			"Quotecord has successfully created the config.json file. Please add your client token to it."
+		);
+	}
+);
