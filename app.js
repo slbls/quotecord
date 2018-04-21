@@ -2,7 +2,16 @@ const { Client, RichEmbed } = require("discord.js"),
 	client = new Client();
 
 client.on("ready", () => {
-	console.log(`Logged in as ${client.user.username}.`);
+	console.log(
+		`Quotecord is currently running and is logged in as ${
+			client.user.username
+		}.`
+	);
+	console.log("To exit Quotecord, press any key...");
+
+	process.stdin.setRawMode(true);
+	process.stdin.resume();
+	process.stdin.on("data", process.exit.bind(process, 0));
 });
 
 client.on("message", message => {
@@ -64,15 +73,22 @@ fs.writeFile(
 	{ flag: "wx" },
 	error => {
 		if (error && error.code === "EEXIST") {
-			const config = require("./config");
-			if (config.token) {
-				client.login(config.token);
-				return;
-			}
+			fs.readFile("config.json", "utf8", (error, data) => {
+				const config = JSON.parse(data);
+				if (config.token) {
+					client.login(config.token);
+					return;
+				}
 
-			console.log(
-				"Cannot login: config.json exists but no client token was specified."
-			);
+				console.log(
+					"Cannot login: config.json exists but no client token was specified."
+				);
+				console.log("Press any key to exit...");
+
+				process.stdin.setRawMode(true);
+				process.stdin.resume();
+				process.stdin.on("data", process.exit.bind(process, 0));
+			});
 
 			return;
 		}
@@ -80,5 +96,10 @@ fs.writeFile(
 		console.log(
 			"Quotecord has successfully created the config.json file. Please add your client token to it."
 		);
+		console.log("Press any key to exit...");
+
+		process.stdin.setRawMode(true);
+		process.stdin.resume();
+		process.stdin.on("data", process.exit.bind(process, 0));
 	}
 );
