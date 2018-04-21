@@ -56,3 +56,9 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# distribution files
+dist
+
+# configuration file
+config.json
