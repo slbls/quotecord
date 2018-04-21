@@ -59,6 +59,3 @@ typings/
 
 # distribution files
 dist
-
-# configuration file
-config.json
