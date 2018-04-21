@@ -29,7 +29,7 @@ Once Quotecord has been opened, it will create a `config.json` file in the progr
 
 ## Usage
 
-1.  Navigate to your Discord settings, then to the Appearance section. Scroll to the bottom of the section and enable the switch labeled `Developer Mode`. This will allow you to copy message IDs, which is an essential part of how Quotecord is able to quote messages.
+1.  Navigate to your Discord settings, then go to the `Appearance` section. Scroll to the bottom of the section and enable the switch labeled `Developer Mode`. This will allow you to copy message IDs, which is an essential part of how Quotecord is able to quote messages.
 
 2.  Right click the message you would like to quote and select `Copy ID`.
 
