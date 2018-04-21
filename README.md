@@ -4,20 +4,14 @@
 
 ## Table of Contents
 
-* [Installation](#installation)
+* [Download](#download)
 * [Finding Token ID](#finding-token-id)
 * [Usage](#usage)
   * [Important Note](#important-note)
 
-## Installation
+## Download
 
-1.  If it is not installed already, [install Node.js on your system.](https://nodejs.org/)
-
-2.  [Download and extract Quotecord from GitHub.](https://github.com/SpoonBytes/quotecord/archive/master.zip)
-
-3.  Edit the `config.json` file with your account's token ID. To find your account's token ID, please see [Finding Token ID.](#finding-token-id)
-
-4.  Open the terminal/command line inside the Quotecord folder and run the command `npm start`.
+[Click here to view the latest release.](https://github.com/SpoonBytes/quotecord/releases)
 
 ## Finding Token ID
 
