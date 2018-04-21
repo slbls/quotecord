@@ -31,37 +31,35 @@ client.on("message", message => {
 			messageContent.split(/{quote:\d+}/).forEach((beforeTag, index) => {
 				const tag = tags[index];
 
-				if (tag) {
-					const quote = messages.get(
-						tags[index].split(":")[1].replace("}", "")
-					);
-
-					if (!quote) return;
-
-					channel.send(
-						beforeTag,
-						new RichEmbed({
-							author: {
-								name: quote.member
-									? quote.member.nickname || quote.author.username
-									: quote.author.username,
-								icon_url: quote.author.displayAvatarURL
-							},
-							description: quote.content,
-							footer: {
-								text: quote.createdAt.toLocaleDateString("en-US", {
-									hour: "numeric",
-									minute: "numeric",
-									second: "numeric"
-								})
-							}
-						})
-					);
+				if (!tag) {
+					if (beforeTag) channel.send(beforeTag);
 
 					return;
 				}
 
-				if (beforeTag) channel.send(beforeTag);
+				const quote = messages.get(tags[index].split(":")[1].replace("}", ""));
+
+				if (!quote) return;
+
+				channel.send(
+					beforeTag,
+					new RichEmbed({
+						author: {
+							name: quote.member
+								? quote.member.nickname || quote.author.username
+								: quote.author.username,
+							icon_url: quote.author.displayAvatarURL
+						},
+						description: quote.content,
+						footer: {
+							text: quote.createdAt.toLocaleDateString("en-US", {
+								hour: "numeric",
+								minute: "numeric",
+								second: "numeric"
+							})
+						}
+					})
+				);
 			});
 		});
 	}
