@@ -11,7 +11,7 @@
 
 ## Download
 
-[Click here to view the latest release.](https://github.com/SpoonBytes/quotecord/releases)
+[Click here for the latest release.](https://github.com/SpoonBytes/quotecord/releases)
 
 ## Finding Token ID
 
