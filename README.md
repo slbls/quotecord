@@ -17,7 +17,7 @@
 
 ![Screenshot of application tab](https://i.imgur.com/QBNTrhX.png)
 
-1.  Press `Ctrl + Shift + I` while the Discord window is opened.
+1.  Press `Ctrl/CMD + Shift + I` (for Mac the keybind is `CMD + Option + I`) while the Discord window is opened.
 
 2.  Switch to the `Application` tab in the window that appears.
 
