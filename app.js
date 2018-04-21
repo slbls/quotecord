@@ -1,13 +1,16 @@
-const { Client, RichEmbed } = require("discord.js"),
+const chalk = require("chalk"),
+	{ Client, RichEmbed } = require("discord.js"),
 	client = new Client();
 
 client.on("ready", () => {
 	console.log(
-		`Quotecord is currently running and is logged in as ${
-			client.user.username
-		}.`
+		chalk.bold.green(
+			`Quotecord is currently running and is logged in as ${chalk.inverse(
+				client.user.username
+			)}.`
+		)
 	);
-	console.log("To exit Quotecord, press any key...");
+	console.log(chalk.gray("To exit Quotecord, press any key..."));
 
 	process.stdin.setRawMode(true);
 	process.stdin.resume();
@@ -81,9 +84,11 @@ fs.writeFile(
 				}
 
 				console.log(
-					"Cannot login: config.json exists but no client token was specified."
+					chalk.bold.red(
+						"Cannot login: config.json exists but no client token was specified."
+					)
 				);
-				console.log("Press any key to exit...");
+				console.log(chalk.gray("Press any key to exit..."));
 
 				process.stdin.setRawMode(true);
 				process.stdin.resume();
@@ -94,9 +99,11 @@ fs.writeFile(
 		}
 
 		console.log(
-			"Quotecord has successfully created the config.json file. Please add your client token to it."
+			chalk.bold.green(
+				"Quotecord has successfully created the config.json file. Please add your client token to it."
+			)
 		);
-		console.log("Press any key to exit...");
+		console.log(chalk.gray("Press any key to exit..."));
 
 		process.stdin.setRawMode(true);
 		process.stdin.resume();
