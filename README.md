@@ -13,6 +13,8 @@
 
 [Click here for the latest release.](https://github.com/SpoonBytes/quotecord/releases)
 
+Once Quotecord has been opened, it will create a `config.json` file in the program's directory. Open the file using a text editor, and add your token ID in between the empty quotation marks. Save the file and relaunch Quotecord to begin using it.
+
 ## Finding Token ID
 
 ![Screenshot of application tab](https://i.imgur.com/QBNTrhX.png)
