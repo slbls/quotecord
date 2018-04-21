@@ -12,6 +12,7 @@
 	"author": "Spencer Berenson",
 	"license": "MIT",
 	"dependencies": {
+		"chalk": "^2.4.0",
 		"discord.js": "^11.3.2"
 	},
 	"devDependencies": {
