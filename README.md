@@ -8,6 +8,7 @@
 * [Setup](#setup)
   * [Finding Token ID](#finding-token-id)
   * [Configuration](#configuration)
+  * [Developer Mode](#developer-mode)
   * [Quoting Messages](#quoting-messages)
 * [Important Note](#important-note)
 
@@ -39,17 +40,23 @@ Your token ID is what identifies your Discord account. Quotecord needs your toke
 
 Once Quotecord has been opened, it will create a `config.json` file in the program's directory. Open the file using a text editor and add your token ID in between the empty quotation marks. Save the file and relaunch Quotecord to begin using it.
 
+### Developer Mode
+
+There is one last step before being able to quote messages: enabling a Discord setting which will allow you to copy message IDs, an essential part of how Quotecord is able to identify and quote messages.
+
+1.  Navigate to the Discord settings and go to the `Appearance` section.
+
+2.  Scroll to the bottom of the section and enable the switch labeled `Developer Mode`.
+
 ### Quoting Messages
 
-With Quotecord downloaded, configured, and running, you can now quote other users' messages! Follow the steps below to learn how:
+With Quotecord downloaded, configured, and running, you can now quote other users' messages! Follow the simple steps below to learn how:
 
-1.  Navigate to your Discord settings and go to the `Appearance` section. Scroll to the bottom of the section and enable the switch labeled `Developer Mode`. This will allow you to copy message IDs, which is an essential part of how Quotecord is able to quote messages.
+1.  Right click the message you would like to quote and select `Copy ID`.
 
-2.  Right click the message you would like to quote and select `Copy ID`.
+2.  Type `{quote:MESSAGE_ID_HERE}` with `MESSGAGE_ID_HERE` replaced by the message ID obtained in the previous step
 
-3.  Type `{quote:MESSAGE_ID_HERE}` with `MESSGAGE_ID_HERE` replaced by the message ID obtained in the previous step
-
-4.  Send!
+3.  Send!
 
 ## Important Note
 
