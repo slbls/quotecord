@@ -2,6 +2,12 @@ const chalk = require("chalk"),
 	{ Client, RichEmbed } = require("discord.js"),
 	client = new Client();
 
+function stdinWait() {
+	process.stdin.setRawMode(true);
+	process.stdin.resume();
+	process.stdin.on("data", process.exit.bind(process, 0));
+}
+
 client.on("ready", () => {
 	console.log(
 		chalk.bold.green(
@@ -12,9 +18,7 @@ client.on("ready", () => {
 	);
 	console.log(chalk.gray("To exit Quotecord, press any key..."));
 
-	process.stdin.setRawMode(true);
-	process.stdin.resume();
-	process.stdin.on("data", process.exit.bind(process, 0));
+	stdinWait();
 });
 
 client.on("message", message => {
@@ -112,8 +116,6 @@ fs.writeFile(
 		);
 		console.log(chalk.gray("Press any key to exit..."));
 
-		process.stdin.setRawMode(true);
-		process.stdin.resume();
-		process.stdin.on("data", process.exit.bind(process, 0));
+		stdinWait();
 	}
 );
