@@ -5,18 +5,33 @@
 	"main": "app.js",
 	"bin": "app.js",
 	"scripts": {
-		"test": "nodemon app.js",
-		"start": "node app.js",
-		"deploy": "pkg package.json --out-path dist"
+		"test": "electron .",
+		"start": "electron-builder -mwl"
 	},
 	"author": "Spencer Berenson",
 	"license": "MIT",
 	"dependencies": {
-		"chalk": "^2.4.0",
 		"discord.js": "^11.3.2"
 	},
 	"devDependencies": {
-		"nodemon": "^1.17.3",
-		"pkg": "^4.3.1"
+		"electron": "^1.8.4",
+		"electron-builder": "^20.10.0"
+	},
+	"build": {
+		"appId": "me.berenson.quotecord",
+		"productName": "Quotecord",
+		"extraFiles": ["icon.png"],
+		"win": {
+			"target": "nsis"
+		},
+		"mac": {
+			"target": "dmg",
+			"category": "Utilities",
+			"identity": "null"
+		},
+		"linux": {
+			"target": "AppImage",
+			"category": "Utilities"
+		}
 	}
 }
