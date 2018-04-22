@@ -2,7 +2,7 @@
 	"name": "quotecord",
 	"version": "1.1.0",
 	"description": "Discord self-bot for quoting.",
-	"main": "src/app.js",
+	"main": "app.js",
 	"scripts": {
 		"test": "electron .",
 		"start": "electron-builder -mwl"
