@@ -20,7 +20,7 @@
 	"build": {
 		"appId": "me.berenson.quotecord",
 		"productName": "Quotecord",
-		"extraFiles": ["icon.png"],
+		"extraFiles": ["build/icon.png"],
 		"win": {
 			"target": "nsis"
 		},
