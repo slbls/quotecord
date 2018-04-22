@@ -1,9 +1,8 @@
 {
 	"name": "quotecord",
-	"version": "1.0.2",
+	"version": "1.1.0",
 	"description": "Discord self-bot for quoting.",
-	"main": "app.js",
-	"bin": "app.js",
+	"main": "src/app.js",
 	"scripts": {
 		"test": "electron .",
 		"start": "electron-builder -mwl"
@@ -20,7 +19,7 @@
 	"build": {
 		"appId": "me.berenson.quotecord",
 		"productName": "Quotecord",
-		"extraFiles": ["icon.png"],
+		"extraFiles": ["src/icon.png"],
 		"win": {
 			"target": "nsis"
 		},
