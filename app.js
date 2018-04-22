@@ -1,16 +1,21 @@
 const fs = require("fs"),
-	{ app, Menu, Tray } = require("electron"),
+	{ app, Menu, Tray, shell } = require("electron"),
 	{ Client, RichEmbed } = require("discord.js"),
 	client = new Client();
 
 let tray;
 
 function createTray(menu) {
-	tray = new Tray("icon.png");
+	tray = new Tray("build/icon.png");
 
 	tray.setContextMenu(
 		Menu.buildFromTemplate(
 			menu.concat([
+				{
+					label: "Open config.json",
+					sublabel: "View and/or edit the file in your default editor",
+					click: () => shell.openItem("config.json")
+				},
 				{
 					label: "Reload",
 					sublabel: "Detect changes to config.json",
