@@ -1,0 +1,7 @@
+TODO:
+	☐ Convert from pkg based solution to Electron based solution with electron-builder
+		Ideally, Quotecord should exist as a tray application which Electron (thankfully) supports
+			I need to find or create a icon
+	☐ Configure token from the tray icon's menu
+		This could either be done by opening the file and having the user insert their token,
+		or by having an input field in the menu item itself.
