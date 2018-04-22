@@ -1,7 +1,9 @@
 TODO:
-	☐ Convert from pkg based solution to Electron based solution with electron-builder
+	✔ Convert from pkg based solution to Electron based solution with electron-builder @done(18-04-22 19:22)
 		Ideally, Quotecord should exist as a tray application which Electron (thankfully) supports
 			I need to find or create a icon
+
+		For now, I am using a general quote icon with the same color as Discord's logo.
 	☐ Configure token from the tray icon's menu
 		This could either be done by opening the file and having the user insert their token,
 		or by having an input field in the menu item itself.
