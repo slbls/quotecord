@@ -68,34 +68,39 @@ client.on("message", message => {
 const fs = require("fs"),
 	path = require("path");
 
+// Because pkg, which is used for deploying quotecord, creates its own
+// filesystem and bundles all require() files into the binary, the real
+// file system is accessed using process.execPath. For this same reason,
+// config.json is read using readFile, rather than simply require(), as
+// the file would otherwise be packaged into the distributable with no way
+// for the user to edit or access its contents.
+
+const configPath = path.join(path.dirname(process.execPath), "config.json");
+
 fs.writeFile(
-	path.join(__dirname, "config.json"),
+	configPath,
 	JSON.stringify({ token: "" }, null, "\t"),
 	{ flag: "wx" },
 	error => {
 		if (error && error.code === "EEXIST") {
-			fs.readFile(
-				path.join(__dirname, "config.json"),
-				"utf8",
-				(error, data) => {
-					const config = JSON.parse(data);
-					if (config.token) {
-						client.login(config.token);
-						return;
-					}
-
-					console.log(
-						chalk.bold.red(
-							"Cannot login: config.json exists but no client token was specified."
-						)
-					);
-					console.log(chalk.gray("Press any key to exit..."));
-
-					process.stdin.setRawMode(true);
-					process.stdin.resume();
-					process.stdin.on("data", process.exit.bind(process, 0));
+			fs.readFile(configPath, "utf8", (error, data) => {
+				const config = JSON.parse(data);
+				if (config.token) {
+					client.login(config.token);
+					return;
 				}
-			);
+
+				console.log(
+					chalk.bold.red(
+						"Cannot login: config.json exists but no client token was specified."
+					)
+				);
+				console.log(chalk.gray("Press any key to exit..."));
+
+				process.stdin.setRawMode(true);
+				process.stdin.resume();
+				process.stdin.on("data", process.exit.bind(process, 0));
+			});
 
 			return;
 		}
