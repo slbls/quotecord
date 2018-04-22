@@ -14,14 +14,11 @@ function createTray(menu) {
 				{
 					label: "Reload",
 					sublabel: "Detect changes to config.json",
-					click: () => {
-						app.relaunch();
-						app.exit();
-					}
+					role: "forcereload"
 				},
 				{
 					label: "Exit",
-					click: () => app.quit()
+					role: "quit"
 				}
 			])
 		)
