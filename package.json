@@ -1,6 +1,6 @@
 {
 	"name": "quotecord",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Discord self-bot for quoting.",
 	"main": "app.js",
 	"bin": "app.js",
