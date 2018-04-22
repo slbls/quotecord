@@ -40,7 +40,7 @@ Once Quotecord has been opened, it will create a `config.json` file in the progr
 
 ### Developer Mode
 
-There is one last step before being able to quote messages: enabling a Discord setting which will allow you to copy message IDs, an essential part of how Quotecord is able to identify and quote messages.
+There is one last step before you can begin quoting messages: enabling a Discord setting which will allow you to copy message IDs, an essential part of how Quotecord is able to identify and quote messages.
 
 1.  Navigate to the Discord settings and go to the `Appearance` section.
 
