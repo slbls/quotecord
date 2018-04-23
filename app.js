@@ -19,7 +19,10 @@ function createTray(menu) {
 				{
 					label: "Reload",
 					sublabel: "Detect changes to config.json",
-					role: "forcereload"
+					click: () => {
+						app.relaunch();
+						app.exit();
+					}
 				},
 				{
 					label: "Exit",
