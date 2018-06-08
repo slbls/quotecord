@@ -13,7 +13,8 @@ function createTray(menu) {
 			menu.concat([
 				{
 					label: "Open config.json",
-					sublabel: "View and/or edit the file in your default editor",
+					sublabel:
+						"View and/or edit the file in your default editor",
 					click: () => shell.openItem("config.json")
 				},
 				{
@@ -51,7 +52,8 @@ app.on("ready", () => {
 					createTray([
 						{
 							label: "Unable to login",
-							sublabel: "config.json exists but no token was specified."
+							sublabel:
+								"config.json exists but no token was specified."
 						}
 					]);
 				});
@@ -99,7 +101,9 @@ client.on("message", message => {
 					return;
 				}
 
-				const quote = messages.get(tags[index].split(":")[1].replace("}", ""));
+				const quote = messages.get(
+					tags[index].split(":")[1].replace("}", "")
+				);
 
 				if (!quote) return;
 
