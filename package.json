@@ -4,17 +4,17 @@
 	"description": "Discord self-bot for quoting.",
 	"main": "src/app.js",
 	"scripts": {
-		"test": "electron .",
-		"start": "electron-builder -mwl"
+		"start": "electron .",
+		"build": "electron-builder -mwl"
 	},
 	"author": "Spencer Berenson",
 	"license": "MIT",
 	"dependencies": {
-		"discord.js": "^11.3.2"
+		"discord.js": "^11.4.2"
 	},
 	"devDependencies": {
-		"electron": "^1.8.4",
-		"electron-builder": "^20.10.0"
+		"electron": "^3.0.3",
+		"electron-builder": "^20.28.4"
 	},
 	"build": {
 		"appId": "me.berenson.quotecord",
