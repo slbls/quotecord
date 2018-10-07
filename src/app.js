@@ -1,4 +1,5 @@
-const fs = require("fs"),
+const path = require("path"),
+	fs = require("fs"),
 	{ app, Menu, Tray, shell } = require("electron"),
 	{ Client, RichEmbed } = require("discord.js"),
 	client = new Client();
@@ -6,7 +7,7 @@ const fs = require("fs"),
 let tray;
 
 function createTray(menu) {
-	tray = new Tray("build/icon.png");
+	tray = new Tray(path.join(__dirname, "./build/icon.png"));
 
 	tray.setContextMenu(
 		Menu.buildFromTemplate(
