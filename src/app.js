@@ -88,16 +88,22 @@ client.on("message", message => {
 			channel = message.channel;
 
 		const tags = messageContent.match(/{quote:\d+}/g);
-		if (!tags) return;
+		if (!tags) {
+			return;
+		}
 
 		channel.fetchMessages().then(messages => {
-			if (message.deletable) message.delete();
+			if (message.deletable) {
+				message.delete();
+			}
 
 			messageContent.split(/{quote:\d+}/).forEach((beforeTag, index) => {
 				const tag = tags[index];
 
 				if (!tag) {
-					if (beforeTag) channel.send(beforeTag);
+					if (beforeTag) {
+						channel.send(beforeTag);
+					}
 
 					return;
 				}
@@ -106,7 +112,9 @@ client.on("message", message => {
 					tags[index].split(":")[1].replace("}", "")
 				);
 
-				if (!quote) return;
+				if (!quote) {
+					return;
+				}
 
 				channel.send(
 					beforeTag,
