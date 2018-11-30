@@ -82,42 +82,39 @@ client.on("ready", () => {
 	]);
 });
 
-client.on("message", message => {
-	if (message.client === client) {
-		const messageContent = message.content,
-			channel = message.channel;
+const QUOTE_REGEX = /({quote:\d+})/;
 
-		const tags = messageContent.match(/{quote:\d+}/g);
-		if (!tags) {
-			return;
+client.on("message", message => {
+	if (message.client !== client) {
+		return;
+	}
+
+	const messageContent = message.content,
+		channel = message.channel;
+
+	if (!QUOTE_REGEX.test(messageContent)) {
+		return;
+	}
+
+	channel.fetchMessages().then(messages => {
+		if (message.deletable) {
+			message.delete();
 		}
 
-		channel.fetchMessages().then(messages => {
-			if (message.deletable) {
-				message.delete();
-			}
-
-			messageContent.split(/{quote:\d+}/).forEach((beforeTag, index) => {
-				const tag = tags[index];
-
-				if (!tag) {
-					if (beforeTag) {
-						channel.send(beforeTag);
-					}
-
+		messageContent
+			.split(QUOTE_REGEX)
+			.filter(Boolean)
+			.forEach(chunk => {
+				if (!QUOTE_REGEX.test(chunk)) {
+					channel.send(chunk.trim());
 					return;
 				}
 
 				const quote = messages.get(
-					tags[index].split(":")[1].replace("}", "")
+					chunk.split(":")[1].replace("}", "")
 				);
 
-				if (!quote) {
-					return;
-				}
-
 				channel.send(
-					beforeTag,
 					new RichEmbed({
 						author: {
 							name: quote.member
@@ -136,6 +133,5 @@ client.on("message", message => {
 					})
 				);
 			});
-		});
-	}
+	});
 });
