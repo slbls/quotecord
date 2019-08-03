@@ -10,11 +10,11 @@
 	"author": "Spencer Berenson",
 	"license": "MIT",
 	"dependencies": {
-		"discord.js": "^11.4.2"
+		"discord.js": "^11.5.1"
 	},
 	"devDependencies": {
-		"electron": "^3.0.10",
-		"electron-builder": "^20.38.2"
+		"electron": "^6.0.0",
+		"electron-builder": "^21.2.0"
 	},
 	"build": {
 		"appId": "me.berenson.quotecord",
