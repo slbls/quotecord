@@ -38,26 +38,27 @@ class QuotecordClient(Client):
             await self.send_help_embed(message.channel)
             return
 
+        quote = None
         quote_id = message_arguments[1]
+
         try:
             quote = await message.channel.fetch_message(quote_id)
         except (NotFound, Forbidden, HTTPException) as exception:
-            help_description = f"Cannot quote message ID `{quote_id}`. "
-
             if isinstance(exception, NotFound):
-                help_description += "No message with that ID was found."
+                help_description = "No message with that ID was found."
             elif isinstance(exception, Forbidden):
-                help_description += "Quotecord does not have the permissions required."
+                help_description = "Quotecord does not have the permissions required."
             elif isinstance(exception, HTTPException):
-                help_description += "The API request failed. This can occur when an invalid or incorrect ID is provided."
+                help_description = "The API request failed. This can occur when an invalid or incorrect ID is provided."
 
-            await self.send_help_embed(message.channel, help_description)
-            return
+        is_quote_found = quote is not None
+        if not is_quote_found or is_quote_found and quote.content == "":
+            if is_quote_found:
+                help_description = "The message has no text content."
 
-        if quote.content == "":
             await self.send_help_embed(
                 message.channel,
-                f"Cannot quote message ID `{quote_id}` because it has no text content.",
+                f"Cannot quote message ID `{quote_id}`. {help_description}",
             )
             return
 
