@@ -51,7 +51,7 @@ class QuotecordClient(Client):
             elif isinstance(exception, HTTPException):
                 help_description = "The API request failed. This can occur when an invalid or incorrect ID is provided."
 
-        if quote is None or quote is not None and quote.content == "":
+        if quote is None or quote.content == "":
             if quote is not None:
                 help_description = "The message has no text content."
 
