@@ -45,13 +45,8 @@ class QuotecordClient(Client):
 
         embed = Embed(type="rich", description=quote.content,
                       timestamp=quote.created_at)
-        embed.set_author(name=quote.author.display_name,
+        embed.set_footer(text=quote.author.display_name,
                          icon_url=quote.author.avatar_url)
-
-        attachment_count = len(quote.attachments)
-        if attachment_count != 0:
-            embed.set_footer(
-                text=f"{attachment_count} excluded attachment{'s' if attachment_count > 1 else ''}")
 
         await message.channel.send(embed=embed)
 
