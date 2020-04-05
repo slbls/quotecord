@@ -1,4 +1,3 @@
-from argparse import ArgumentParser
 from discord import Client, Embed
 
 
@@ -56,6 +55,8 @@ class QuotecordClient(Client):
 
 
 if __name__ == "__main__":
+    from argparse import ArgumentParser
+
     parser = ArgumentParser()
     parser.add_argument("token", type=str,
                         help="Discord bot authentication token")
