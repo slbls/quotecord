@@ -43,12 +43,7 @@ class QuotecordClient(Client):
             await self.send_help_embed(message.channel, f"Cannot quote message ID `{quote_id}` because it has no text content.")
             return
 
-        embed = Embed(type="rich", description=quote.content,
-                      timestamp=quote.created_at)
-        embed.set_footer(text=quote.author.display_name,
-                         icon_url=quote.author.avatar_url)
-
-        await message.channel.send(embed=embed)
+        await message.channel.send(embed=Embed(type="rich", description=quote.content, timestamp=quote.created_at).set_footer(text=quote.author.display_name, icon_url=quote.author.avatar_url))
 
 
 if __name__ == "__main__":
