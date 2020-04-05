@@ -7,7 +7,9 @@ class QuotecordClient(Client):
 
         self.help_embed = Embed(type="rich", title="Quotecord Help")
         self.help_embed.add_field(
-            name="Command Usage", value="`!quote MESSAGE_ID`", inline=False)
+            name="Command Usage", value="`!quote <message_id>`", inline=False)
+        self.help_embed.add_field(
+            name="What's a Message ID?", value="Every Discord message has a unique message ID associated with. Message IDs tell Quotecord which message to quote. To find out how to get the ID of a particular message, please see the GitHub Repository link.")
         self.help_embed.add_field(
             name="GitHub Repository", value="https://github.com/bearinsun/quotecord", inline=False)
 
