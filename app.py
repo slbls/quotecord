@@ -1,4 +1,4 @@
-from discord import Client, Embed
+from discord import Client, Embed, NotFound, Forbidden, HTTPException
 
 
 class QuotecordClient(Client):
@@ -41,10 +41,22 @@ class QuotecordClient(Client):
         quote_id = message_arguments[1]
         try:
             quote = await message.channel.fetch_message(quote_id)
-        except Exception:
+        except NotFound:
             await self.send_help_embed(
                 message.channel,
-                f"Cannot quote message ID `{quote_id}`. Please check that the message ID is correct.",
+                f"Cannot quote message ID `{quote_id}`. No message with that ID was found.",
+            )
+            return
+        except Forbidden:
+            await self.send_help_embed(
+                message.channel,
+                f"Cannot quote message ID `{quote_id}`. Quotecord does not have the permissions required.",
+            )
+            return
+        except HTTPException:
+            await self.send_help_embed(
+                message.channel,
+                f"Cannot quote message ID `{quote_id}`. The API request failed.\n\nThis normally occurs when an incorrect or invalid ID is provided.",
             )
             return
 
