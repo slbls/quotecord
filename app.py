@@ -7,11 +7,17 @@ class QuotecordClient(Client):
 
         self.help_embed = Embed(type="rich", title="Quotecord Help")
         self.help_embed.add_field(
-            name="Command Usage", value="`!quote <message_id>`", inline=False)
+            name="Command Usage", value="`!quote <message_id>`", inline=False
+        )
         self.help_embed.add_field(
-            name="What's a Message ID?", value="Every Discord message has a unique ID associated with it. Message IDs tell Quotecord which message to quote. To find out how to get the ID of a particular message, please see the GitHub Repository link.")
+            name="What's a Message ID?",
+            value="Every Discord message has a unique ID associated with it. Message IDs tell Quotecord which message to quote. To find out how to get the ID of a particular message, please see the GitHub Repository link.",
+        )
         self.help_embed.add_field(
-            name="GitHub Repository", value="https://github.com/bearinsun/quotecord", inline=False)
+            name="GitHub Repository",
+            value="https://github.com/bearinsun/quotecord",
+            inline=False,
+        )
 
     def create_descriptive_help_embed(self, description=None):
         self.help_embed.description = description
@@ -36,22 +42,33 @@ class QuotecordClient(Client):
         try:
             quote = await message.channel.fetch_message(quote_id)
         except Exception:
-            await self.send_help_embed(message.channel, f"Cannot quote message ID `{quote_id}`. Please check that the message ID is correct.")
+            await self.send_help_embed(
+                message.channel,
+                f"Cannot quote message ID `{quote_id}`. Please check that the message ID is correct.",
+            )
             return
 
         if quote.content == "":
-            await self.send_help_embed(message.channel, f"Cannot quote message ID `{quote_id}` because it has no text content.")
+            await self.send_help_embed(
+                message.channel,
+                f"Cannot quote message ID `{quote_id}` because it has no text content.",
+            )
             return
 
-        await message.channel.send(embed=Embed(type="rich", description=quote.content, timestamp=quote.created_at).set_footer(text=quote.author.display_name, icon_url=quote.author.avatar_url))
+        await message.channel.send(
+            embed=Embed(
+                type="rich", description=quote.content, timestamp=quote.created_at
+            ).set_footer(
+                text=quote.author.display_name, icon_url=quote.author.avatar_url
+            )
+        )
 
 
 if __name__ == "__main__":
     from argparse import ArgumentParser
 
     parser = ArgumentParser()
-    parser.add_argument("token", type=str,
-                        help="Discord bot authentication token")
+    parser.add_argument("token", type=str, help="Discord bot authentication token")
     arguments = parser.parse_args()
 
     QuotecordClient().run(arguments.token)
