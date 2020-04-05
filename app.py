@@ -1,11 +1,6 @@
 from argparse import ArgumentParser
 from discord import Client, Embed
 
-parser = ArgumentParser()
-parser.add_argument("token", type=str,
-                    help="Discord bot authentication token")
-arguments = parser.parse_args()
-
 
 class QuotecordClient(Client):
     def __init__(self):
@@ -60,4 +55,10 @@ class QuotecordClient(Client):
         await message.channel.send(embed=embed)
 
 
-QuotecordClient().run(arguments.token)
+if __name__ == "__main__":
+    parser = ArgumentParser()
+    parser.add_argument("token", type=str,
+                        help="Discord bot authentication token")
+    arguments = parser.parse_args()
+
+    QuotecordClient().run(arguments.token)
