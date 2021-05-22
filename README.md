@@ -1,11 +1,9 @@
-**Quotecord has been archived as Discord now supports both quoting and
-replying.**
-
----
-
 # Quotecord
 
 ![Image of example quote](https://i.imgur.com/wEcJfO1.png)
+
+⚠ Quotecord has been archived as Discord now natively supports both quoting and
+replying. ⚠
 
 ## Table of Contents
 
